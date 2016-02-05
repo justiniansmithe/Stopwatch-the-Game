@@ -55,16 +55,15 @@ def start():
 
 def stop():
     global time, is_started, tries, display, score, scoreboard, milliseconds
-    #format(time)
+    
+    if is_started == True:
+        tries = tries + 1
+    
+        if milliseconds == 0:
+            score = int(score) + 1
+        
     is_started = False
-    is_reset = False
-    #update_score()
-    
-    tries = tries + 1
-    
-    
-    if milliseconds == 0:
-        score = int(score) + 1
+    is_reset = False   
         
     scoreboard = str(score) + " / " + str(tries)
     
@@ -115,7 +114,7 @@ def draw(canvas):
 format(time)
 
 # create frame
-frame = simplegui.create_frame("Stopwatch, bitches", width, height)
+frame = simplegui.create_frame("[|]--Stopwatch: The Game--[|]", width, height)
 
 # register event handlers
 text = frame.add_button("Start", start, 150)
@@ -151,8 +150,6 @@ print format(11)
 print format(321)
 print format(613)
 print format(0)'''
-
-
 
 
 
